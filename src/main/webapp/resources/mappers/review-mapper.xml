@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Review">
+<mapper namespace="com.myreview.app.review.ReviewService">
 	<insert id="insertReview">
 		insert into classreview (title, professor, content, rating, semester, author)
 		values(#{title}, #{professor}, #{content}, #{rating}, #{semester}, #{author})
@@ -19,6 +19,6 @@
 		select * from classreview where id = #{id}
 	</select>
 	<select id = "getReviewList" resultType="review">
-		select * from classreview order by regdate desc
+		select * from classreview order by regdate desc;
 	</select>
 </mapper>

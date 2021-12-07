@@ -12,27 +12,27 @@ public class ReviewDAO {
 	SqlSession session;
 	
 	public int insertReview(ReviewVO vo) {
-		int result = session.insert("Review.insertReview",vo);
+		int result = session.insert("com.myreview.app.review.ReviewService.insertReview",vo);
 		return result;
 	}
 	
 	public int updateReview(ReviewVO vo) {
-		int result = session.update("Review.updateReview", vo);
+		int result = session.update("com.myreview.app.review.ReviewService.updateReview", vo);
 		return result;
 	}
 	
-	public int deleteReview(ReviewVO vo) {
-		int result = session.delete("Review.deleteReview", vo);
+	public int deleteReview(int id) {
+		int result = session.delete("com.myreview.app.review.ReviewService.deleteReview", id);
 		return result;
 	}
 	
 	public ReviewVO getReview(int id) {
-		ReviewVO one = session.selectOne("Review.getReview",id);
+		ReviewVO one = session.selectOne("com.myreview.app.review.ReviewService.getReview",id);
 		return one;
 	}
 	
 	public List<ReviewVO> getReviewList(){
-		List<ReviewVO> list = session.selectList("Review.getReviewList");
+		List<ReviewVO> list = session.selectList("com.myreview.app.review.ReviewService.getReviewList",null);
 		return list;
 	}
 }

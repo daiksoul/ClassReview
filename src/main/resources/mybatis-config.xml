@@ -3,5 +3,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="review" type="com.myreview.app.review.ReviewVO" />
+		<typeAlias alias="user" type="com.myreview.app.user.UserVO"/>
 	</typeAliases>
 </configuration>
