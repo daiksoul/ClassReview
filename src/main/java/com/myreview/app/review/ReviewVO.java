@@ -8,12 +8,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ReviewVO {
-	int id;
-	String title;
-	String professor;
-	String content;
-	Timestamp regdate;
-	int rating;
-	int semester;
-	int author;	
+	private int id;
+	private String title;
+	private String professor;
+	private String content;
+	private Timestamp regdate;
+	private int rating;
+	private int semester;
+	private int author;	
 }
