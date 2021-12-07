@@ -78,7 +78,7 @@ textarea {
 </label>
 
 <br> <br>
-  <textarea name="content">한학기 수강 후 느낀점이나 개선사항을 적어주세요.</textarea>
+  <textarea name="content">한 학기 수강 후 느낀점이나 개선사항을 적어주세요.</textarea>
 </form>
 
 </body>
