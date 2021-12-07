@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Review">
+	<insert id="insertReview">
+		insert into classreview (title, professor, content, rating, semester, author)
+		values(#{title}, #{professor}, #{content}, #{rating}, #{semester}, #{author})
+	</insert>
+	<update id="updateReview">
+		update classreview
+		set
+		title = #{title}, professor = #{professor}, content = #{content}, rating = #{rating}, semester = #{semester}, author = #{author}
+		where id = #{id}
+	</update>
+	<delete id ="deleteReview">
+		delete from classreview
+		where id = #{id}
+	</delete>
+	<select id = "getReview" resultType="review">
+		select * from classreview where id = #{id}
+	</select>
+	<select id = "getReviewList" resultType="review">
+		select * from classreview order by regdate desc
+	</select>
+</mapper>
