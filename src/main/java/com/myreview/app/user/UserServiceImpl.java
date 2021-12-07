@@ -7,4 +7,5 @@ public class UserServiceImpl {
 	public UserVO getUser(UserVO vo) {
 		return userDAO.getUser(vo);
 	}
+	
 }
