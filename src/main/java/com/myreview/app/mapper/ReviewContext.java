@@ -29,4 +29,6 @@ public class ReviewContext {
 		session.insert("insertReview", reviewVO);
 	}
 	
+	
+	
 }
