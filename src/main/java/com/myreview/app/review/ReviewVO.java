@@ -2,6 +2,11 @@ package com.myreview.app.review;
 
 import java.sql.Timestamp;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class ReviewVO {
 	int id;
 	String title;
@@ -10,7 +15,5 @@ public class ReviewVO {
 	Timestamp regdate;
 	int rating;
 	int semester;
-	int author;
-	
-	
+	int author;	
 }
