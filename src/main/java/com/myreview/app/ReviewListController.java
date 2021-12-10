@@ -1,5 +1,7 @@
 package com.myreview.app;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,9 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.myreview.app.review.ReviewDAO;
 import com.myreview.app.review.ReviewService;
-import com.myreview.app.review.ReviewServiceImpl;
 import com.myreview.app.review.ReviewVO;
 
 @Controller
@@ -26,17 +26,22 @@ public class ReviewListController {
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public String addReview() {
-		return "writing";
+		return "addpost";
 	}
 	
-	@RequestMapping(value="/addok", method=RequestMethod.GET)
-	public String addReviewOK(ReviewVO vo) {
+	@RequestMapping(value="/addok", method=RequestMethod.POST, produces="text/plain;charset=UTF-8")
+	public String addReviewOK(ReviewVO vo, HttpServletRequest request) {
+		int rating = 0;
+		for(int i = 1; i<=5; i++)
+			if(request.getParameter("grade"+i)!=null)
+				rating++;
+		vo.setRating(rating);
 		int i = reviewSer.insertReview(vo);
 		if(i==0)
 			System.out.println("FAIL");
 		else
 			System.out.println("SUCCESS");
-		return "redirect:/list";
+		return "redirect:/review/list";
 	}
 	
 	@RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
@@ -52,7 +57,7 @@ public class ReviewListController {
 			System.out.println("FAIL");
 		else
 			System.out.println("SUCCESS");
-		return "redirect:/list";
+		return "redirect:/review/list";
 	}
 	
 	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
@@ -62,6 +67,6 @@ public class ReviewListController {
 			System.out.println("FAIL");
 		else
 			System.out.println("SUCCESS");
-		return "redirect:/list";
+		return "redirect:/review/list";
 	}
 }

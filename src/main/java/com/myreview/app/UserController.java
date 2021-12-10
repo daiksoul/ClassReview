@@ -32,19 +32,19 @@ public class UserController {
 		if ( loginvo != null ){ // 로그인 성공 
 			System.out.println("로그인 성공!");
 			session.setAttribute("login", loginvo);
-			returnURL = "redirect:/board/list"; 
+			returnURL = "redirect:/review/list"; 
 		}else { // 로그인 실패
 			System.out.println("로그인 실패!");
-			returnURL = "redirect:/login/login"; 
+			returnURL = "redirect:/login"; 
 		}
-		return returnURL; 
+		return returnURL;
 	}
 	
 	// 로그아웃 하는 부분 
 	@RequestMapping(value="/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/login/login"; 
+		return "redirect:/login"; 
 	}	
 }
 
