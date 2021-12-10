@@ -5,6 +5,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+#list {
+  border-collapse: collapse;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  border-radius: 10px; !improtant;
+  border: 1px solid white !important;
+}
+
+#list th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: white;
+  
+}
+</style>
+
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
@@ -25,13 +44,15 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1>CSEE 강의 리뷰 게시판</h1>
-    <p> 수강 후 전산전자공학부 학생들이 작성한 강의 리뷰 목록입니다.</p>
+    <h2>CSEE 강의 리뷰 게시판</h1>
+    <p> 전산전자공학부 학생들이 작성한 강의 리뷰 목록입니다.</p>
+    <input type="button" value="강의 리뷰 등록" onClick="location.href='../review/add'" >
+    <input type="button" value="로그아웃" onClick="location.href='../login/logout'" >
   </div>
 </div>
 
-
-<table class="table">
+<br> <br>
+<table class="table" id = "list" width="90%">
 <tr>
 	<th>ID</th>
 	<th>Title</th>
@@ -41,6 +62,8 @@
 	<th>Rating</th>
 	<th>Semester</th>
 	<th>Author</th>
+	<th></th>
+	<th></th>
 </tr>
 	<c:forEach items="${list}" var="u">
 	<tr>
@@ -57,7 +80,6 @@
 	</tr>
 	</c:forEach>
 </table>
-<!-- <button class="addBtn" href="add">리뷰 추가</button> -->
 
 </body>
 </html>

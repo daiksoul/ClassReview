@@ -95,34 +95,34 @@ input[type=button], input[type=submit], input[type=reset] {
 
 <label for="lecture-select">수강한 강의를 선택하세요:</label> <br>
 <label class="test_obj">
-    <input type="radio" name="title" value="L1">
+    <input type="radio" name="title" value="실전프로젝트1">
     <span>실전프로젝트1</span>
 </label>
  
 <label class="test_obj">
-    <input type="radio" name="title" value="L2">
+    <input type="radio" name="title" value="c프로그래밍 실습">
     <span>c프로그래밍 실습</span>
 </label>
 
 <label class="test_obj">
-    <input type="radio" name="title" value="L3">
+    <input type="radio" name="title" value="진로와 직업설계">
     <span>진로와 직업설계</span>
 </label>
 
 <label class="test_obj">
-    <input type="radio" name="title" value="L4">
+    <input type="radio" name="title" value="캡스톤 디자인">
     <span>캡스톤 디자인</span>
 </label>
 
 <br> <br>
 <label for="lecture-select">수강한 교수님을 선택하세요:</label> <br>
 <label class="test_obj">
-    <input type="radio" name="professor" value="P1">
+    <input type="radio" name="professor" value="김광 교수님">
     <span>김광 교수님</span>
 </label>
  
 <label class="test_obj">
-    <input type="radio" name="professor" value="P2">
+    <input type="radio" name="professor" value="장소연 교수님">
     <span>장소연 교수님</span>
 </label>
 
@@ -144,7 +144,7 @@ input[type=button], input[type=submit], input[type=reset] {
 <br> <br>
   <textarea name="content">한 학기 수강 후 느낀점이나 개선사항을 적어주세요.</textarea>
   
-<input type="button" value="Button">
+<input type="button" value="Cancel" onClick="location.href='../review/list'" >
 <input type="reset" value="Reset">
 <input type="submit" value="Submit">
   
