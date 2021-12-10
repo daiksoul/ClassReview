@@ -15,7 +15,7 @@
 		delete from classreview
 		where id = #{id}
 	</delete>
-	<select id = "getReview" resultType="review">
+	<select id = "getReview" resultType="review" parameterType="int">
 		select * from classreview where id = #{id}
 	</select>
 	<select id = "getReviewList" resultType="review">

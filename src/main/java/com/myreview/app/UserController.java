@@ -1,4 +1,4 @@
-package com.myreview.app.user;
+package com.myreview.app;
 
 import javax.servlet.http.HttpSession;
 
@@ -7,16 +7,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@Controller 
+import com.myreview.app.user.UserServiceImpl;
+import com.myreview.app.user.UserVO;
+
+@Controller
 @RequestMapping(value="/login")
 public class UserController {
-	
 	@Autowired
 	UserServiceImpl service;
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET) 
 	public String login() {
-		return "login"; 
+		return "login";
 	}
 
 	@RequestMapping(value = "/loginOk", method = RequestMethod.POST)
@@ -43,7 +45,6 @@ public class UserController {
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/login/login"; 
-	}
+	}	
 }
-	
 

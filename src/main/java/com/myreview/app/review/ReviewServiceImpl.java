@@ -3,7 +3,9 @@ package com.myreview.app.review;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ReviewServiceImpl implements ReviewService {
 	@Autowired
 	ReviewDAO reviewDAO;
@@ -15,7 +17,7 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public int deleteReview(int id) {
-		return reviewDAO.deleteReview(getReview(id));
+		return reviewDAO.deleteReview(id);
 	}
 
 	@Override
