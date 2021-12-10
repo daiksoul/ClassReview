@@ -1,10 +1,12 @@
 package com.myreview.app.review;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+@AllArgsConstructor
 @Getter
 @Setter
 public class ReviewVO {
@@ -12,8 +14,12 @@ public class ReviewVO {
 	private String title;
 	private String professor;
 	private String content;
-	private Timestamp regdate;
+	private Date regdate;
 	private int rating;
 	private int semester;
-	private int author;	
+	private int author;
+	
+	public ReviewVO() {
+		
+	}
 }
