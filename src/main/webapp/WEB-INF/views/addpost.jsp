@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +9,17 @@
 <title>강의 리뷰 등록하기</title>
 <script>
 
-function getCheckedCnt()  {
-	  // 선택된 목록 가져오기
-	  const query = 'input[name="grade"]:checked';
+function getCheckedCnt(val)  {
+	for(let i = 1; i<=5 ;i++){
+		const element = document.getElementById("check"+i);
+		if(i<=val)
+			element.checked = true;
+		else
+			element.checked = false;
+	}
+	
+	// 선택된 목록 가져오기
+	  const query = 'input[class="grade"]:checked';
 	  const selectedElements = 
 	      document.querySelectorAll(query);
 	  
@@ -71,7 +80,7 @@ input[type=button], input[type=submit], input[type=reset] {
 </head>
 <body>
 
-<form action="review/addok" method="post">
+<form action="addok" method="post">
 <label for="semester-select">수강 학기를 선택하세요:</label>
 <select id="semester-select" name="semester">
 	<c:forEach var="i" begin="2019" end="2021" step="1">
@@ -119,15 +128,15 @@ input[type=button], input[type=submit], input[type=reset] {
 
 <br> <br>
 <label for="lecture-select">평점:</label> 
-<input type="checkbox" name='grade' id="check1" onclick='getCheckedCnt()'>
+<input type="checkbox" name='grade1' class="grade" id="check1" onclick='getCheckedCnt(1)'>
 <label for="check1"></label>
-<input type="checkbox" name='grade' id="check2" onclick='getCheckedCnt()'>
+<input type="checkbox" name='grade2' class="grade" id="check2" onclick='getCheckedCnt(2)'>
 <label for="check2"></label>
-<input type="checkbox" name='grade' id="check3" onclick='getCheckedCnt()'>
+<input type="checkbox" name='grade3' class="grade" id="check3" onclick='getCheckedCnt(3)'>
 <label for="check3"></label>
-<input type="checkbox" name='grade' id="check4" onclick='getCheckedCnt()'>
+<input type="checkbox" name='grade4' class="grade" id="check4" onclick='getCheckedCnt(4)'>
 <label for="check4"></label>
-<input type="checkbox" name='grade' id="check5" onclick='getCheckedCnt()'>
+<input type="checkbox" name='grade5' class="grade" id="check5" onclick='getCheckedCnt(5)'>
 <label for="check5"></label>
 
 <div id='result'></div>
