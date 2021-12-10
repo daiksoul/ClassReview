@@ -7,28 +7,31 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.myreview.app.review.ReviewDAO;
 import com.myreview.app.review.ReviewService;
+import com.myreview.app.review.ReviewServiceImpl;
 import com.myreview.app.review.ReviewVO;
 
 @Controller
+@RequestMapping(value="/review")
 public class ReviewListController {
 	@Autowired
-	ReviewService reviewService;
+	ReviewService reviewSer;
 	
-	@RequestMapping(value="/review/list",method=RequestMethod.GET)
+	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public String reviewList(Model model) {
-		model.addAttribute("list",reviewService.getReviewList());
+		model.addAttribute("list",reviewSer.getReviewList());
 		return "list";
 	}
 	
-	@RequestMapping(value="review/add", method=RequestMethod.GET)
+	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public String addReview() {
 		return "writing";
 	}
 	
-	@RequestMapping(value="review/addok", method=RequestMethod.GET)
+	@RequestMapping(value="/addok", method=RequestMethod.GET)
 	public String addReviewOK(ReviewVO vo) {
-		int i = reviewService.insertReview(vo);
+		int i = reviewSer.insertReview(vo);
 		if(i==0)
 			System.out.println("FAIL");
 		else
@@ -36,15 +39,15 @@ public class ReviewListController {
 		return "redirect:/list";
 	}
 	
-	@RequestMapping(value="review/edit/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
 	public String editReview(Model model,@PathVariable("id") int id) {
-		model.addAttribute("vo", reviewService.getReview(id));
+		model.addAttribute("vo", reviewSer.getReview(id));
 		return "writing";
 	}
 	
 	@RequestMapping(value="review/editok", method=RequestMethod.GET)
 	public String editReviewOK(ReviewVO vo) {
-		int i = reviewService.updateReview(vo);
+		int i = reviewSer.updateReview(vo);
 		if(i==0)
 			System.out.println("FAIL");
 		else
@@ -52,9 +55,9 @@ public class ReviewListController {
 		return "redirect:/list";
 	}
 	
-	@RequestMapping(value="review/delete/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
 	public String deleteReview(@PathVariable("id")int id) {
-		int i = reviewService.deleteReview(id);
+		int i = reviewSer.deleteReview(id);
 		if(i==0)
 			System.out.println("FAIL");
 		else

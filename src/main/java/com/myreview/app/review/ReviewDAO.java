@@ -11,28 +11,30 @@ public class ReviewDAO {
 	@Autowired
 	SqlSession session;
 	
+	private static String namespace = "Review";
+	
 	public int insertReview(ReviewVO vo) {
-		int result = session.insert("com.myreview.app.review.ReviewService.insertReview",vo);
+		int result = session.insert(namespace+".insertReview",vo);
 		return result;
 	}
 	
 	public int updateReview(ReviewVO vo) {
-		int result = session.update("com.myreview.app.review.ReviewService.updateReview", vo);
+		int result = session.update(namespace+".updateReview", vo);
 		return result;
 	}
 	
 	public int deleteReview(int id) {
-		int result = session.delete("com.myreview.app.review.ReviewService.deleteReview", id);
+		int result = session.delete(namespace+".deleteReview", id);
 		return result;
 	}
 	
 	public ReviewVO getReview(int id) {
-		ReviewVO one = session.selectOne("com.myreview.app.review.ReviewService.getReview",id);
+		ReviewVO one = session.selectOne(namespace+".getReview",id);
 		return one;
 	}
 	
 	public List<ReviewVO> getReviewList(){
-		List<ReviewVO> list = session.selectList("com.myreview.app.review.ReviewService.getReviewList",null);
+		List<ReviewVO> list = session.selectList(namespace+".getReviewList");
 		return list;
 	}
 }
