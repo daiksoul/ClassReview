@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class UserDAO {
+	
 	@Autowired
 	SqlSessionTemplate sqlSession;
 	public UserVO getUser(UserVO vo) {
