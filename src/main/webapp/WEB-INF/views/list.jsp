@@ -72,9 +72,9 @@
 		<td>${u.getTitle()}</td>
 		<td>${u.getProfessor() }</td>
 		<td>${u.getContent() }</td>
-		<td>${u.getRegdate() }</td>
+		<td>${u.getTimeString() }</td>
 		<td>${u.getRating() }</td>
-		<td>${u.getSemester() }</td>
+		<td>${u.getSemesterString() }</td>
 		<td>${usermap.get(u.getAuthor()) }</td>
 		<c:choose>
 		<c:when test="${u.getAuthor() eq sessionId || sessionId == 1 }">

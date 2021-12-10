@@ -64,7 +64,7 @@ public class ReviewListController {
 	public String editReview(Model model,@PathVariable("id") int id, HttpSession session) {
 		UserVO user = (UserVO)session.getAttribute("login");
 		ReviewVO review = reviewSer.getReview(id);
-		if(user.getId()==review.getAuthor()) {
+		if(user.getId()==1||user.getId()==review.getAuthor()) {
 			model.addAttribute("vo", reviewSer.getReview(id));
 			return "editform";
 		}
@@ -73,8 +73,13 @@ public class ReviewListController {
 		}
 	}
 	
-	@RequestMapping(value="review/editok", method=RequestMethod.GET)
-	public String editReviewOK(ReviewVO vo) {
+	@RequestMapping(value="/editok", method=RequestMethod.POST)
+	public String editReviewOK(ReviewVO vo,HttpServletRequest request) {
+		int rating = 0;
+		for(int i = 1; i<=5; i++)
+			if(request.getParameter("grade"+i)!=null)
+				rating++;
+		vo.setRating(rating);
 		int i = reviewSer.updateReview(vo);
 		if(i==0)
 			System.out.println("FAIL");
