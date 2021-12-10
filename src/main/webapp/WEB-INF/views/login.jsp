@@ -27,7 +27,7 @@
     <h1>CESS</h1>
 	<h3>강의 리뷰 게시판</h3>
     <div style='width:90%;text-align:center;padding-top:60px'> 
-	<form method="post" action="login/loginOk">
+	<form method="post" action="loginOk">
 	<div><label>ID: </label><input type='text' name='userid' placeholder="아이디를 입력하세요.."/></div> 
 	<br>
 	<div><label>PW: </label><input type='password' name='password' placeholder="비밀번호를 입력하세요.."/></div> 

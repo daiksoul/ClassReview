@@ -35,7 +35,7 @@ public class UserController {
 			returnURL = "redirect:/review/list"; 
 		}else { // 로그인 실패
 			System.out.println("로그인 실패!");
-			returnURL = "redirect:/"; 
+			returnURL = "redirect:/login/login"; 
 		}
 		return returnURL;
 	}
@@ -44,7 +44,7 @@ public class UserController {
 	@RequestMapping(value="/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/"; 
+		return "redirect:/login/login"; 
 	}	
 }
 

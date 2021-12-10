@@ -38,7 +38,7 @@
 		if(a) location.href='delete/' + id;	
 	}
 </script>
-
+<title>리뷰 목록</title>
 </head>
 <body class="text-center" class="container">
 
