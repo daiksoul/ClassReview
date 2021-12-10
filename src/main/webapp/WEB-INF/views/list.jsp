@@ -16,7 +16,7 @@
 <script>
 	function delete_ok(id){
 		var a = confirm("정말로 삭제하시겠습니까?");
-		if(a) location.href='deleteok/' + id;	
+		if(a) location.href='delete/' + id;	
 	}
 </script>
 
@@ -41,6 +41,8 @@
 	<th>Rating</th>
 	<th>Semester</th>
 	<th>Author</th>
+	<th>Edit</th>
+	<th>Delete</th>
 </tr>
 	<c:forEach items="${list}" var="u">
 	<tr>
@@ -51,9 +53,17 @@
 		<td>${u.getRegdate() }</td>
 		<td>${u.getRating() }</td>
 		<td>${u.getSemester() }</td>
-		<td>${u.getAuthor() }</td>
-		<td><a href="editform/${u.getId()}">Edit</a></td>
-		<td><a href="javascript:delete_ok('${u.getId()}')">Delete</a></td>
+		<td>${usermap.get(u.getAuthor()) }</td>
+		<c:choose>
+		<c:when test="${u.getAuthor() eq sessionId || sessionId == 1 }">
+			<td><a href="edit/${u.getId()}">Edit</a></td>
+			<td><a href="javascript:delete_ok('${u.getId()}')">Delete</a></td>
+		</c:when>
+		<c:otherwise>
+			<td>
+			<td>
+		</c:otherwise>
+		</c:choose>
 	</tr>
 	</c:forEach>
 </table>

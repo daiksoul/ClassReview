@@ -144,7 +144,7 @@ input[type=button], input[type=submit], input[type=reset] {
 <br> <br>
   <textarea name="content">한 학기 수강 후 느낀점이나 개선사항을 적어주세요.</textarea>
   
-<input type="button" value="Button">
+<input type="button" value="Button" onClick="location.href='../review/list'">
 <input type="reset" value="Reset">
 <input type="submit" value="Submit">
   
